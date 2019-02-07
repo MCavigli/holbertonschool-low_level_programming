@@ -3,7 +3,7 @@
  *main - print the alphabet in lowercase
  *
  *description: Will print out the entire alphabet in lowercase
- *return: 0
+ *Return: 0
  */
 int main(void)
 {
