@@ -1,9 +1,9 @@
 #include "holberton.h"
-/*
- *Main - calls the function _putchar
+/**
+ * main - calls the function _putchar
  *
- *Description: programs that prints Holberton, followed by a new line
- *Return: 0
+ * Description: programs that prints Holberton, followed by a new line
+ * Return: 0
  */
 
 int main(void)
