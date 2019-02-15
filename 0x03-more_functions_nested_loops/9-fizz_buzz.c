@@ -18,13 +18,22 @@ int main(void)
 
 		if (i % 3 == 0 && i % 5 == 0)
 			printf("%s ", fizzbuzz);
+
 		else if ((i % 3) == 0)
 			printf("%s ", fizz);
+
 		else if ((i % 5) == 0)
-			printf("%s ", buzz);
+		{
+			if (i == 100)
+				printf("%s", buzz);
+			else
+				printf("%s ", buzz);
+		}
 		else
 			printf("%i ", i);
 	}
+
 	putchar('\n');
+
 	return (0);
 }
