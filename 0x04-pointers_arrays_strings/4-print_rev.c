@@ -10,7 +10,7 @@
 
 void print_rev(char *s)
 {
-	int len = _strlen(s);
+	int len = _strlen(s) - 1;
 
 	while (len >= 0)
 	{
@@ -19,8 +19,13 @@ void print_rev(char *s)
 	}
 	_putchar('\n');
 }
-
-
+/**
+ * _strlen - returns the length of a string
+ *
+ * @s: the string whose length to return
+ *
+ * Return: the length of the string
+ */
 int _strlen(char *s)
 {
 	int i = 0;
