@@ -12,7 +12,7 @@ void reverse_array(int *a, int n)
 {
 	int temp; /* holds value */
 	int i;    /* counter */
-	int j = n -1; /* reverse counter */
+	int j = n - 1; /* reverse counter */
 
 	for (i = 0; i < j; i++)
 	{
