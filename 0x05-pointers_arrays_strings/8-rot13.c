@@ -18,7 +18,10 @@ char *rot13(char *z)
 		for (j = 0; j < 56; j++)
 		{
 			if (z[i] == a[j])
+			{
 				z[i] = n[j];
+				break;
+			}
 		}
 	}
 
