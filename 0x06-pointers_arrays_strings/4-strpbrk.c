@@ -16,10 +16,10 @@ char *_strpbrk(char *s, char *accept)
 	{
 		while (*accept)
 		{
-			if (*s != *accept)
-				accept++;
-			else
-				accept++;
+			if (*s == *accept)
+				return (s);
+			accept++;
+
 		}
 		s++;
 	}
