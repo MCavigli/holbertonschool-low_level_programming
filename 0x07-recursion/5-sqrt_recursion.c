@@ -1,19 +1,6 @@
 #include "holberton.h"
 
 /**
- * _sqrt_recursion - returns the natural square root of a number
- *
- * @n: the number to return the square root of
- *
- * Return: the square root of @n
- */
-
-int _sqrt_recursion(int n)
-{
-	return (helper(n, n - 1));
-}
-
-/**
  * helper - Finds the square root of two numbers
  *
  * @a: The number
@@ -32,4 +19,17 @@ int helper(int a, int b)
 
 	else
 		return (helper(a, b - 1));
+}
+
+/**
+ * _sqrt_recursion - returns the natural square root of a number
+ *
+ * @n: the number to return the square root of
+ *
+ * Return: the square root of @n
+ */
+
+int _sqrt_recursion(int n)
+{
+	return (helper(n, n - 1));
 }
