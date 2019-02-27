@@ -14,6 +14,9 @@ int helper(int a, int b)
 	if (b * b == a)
 		return (b);
 
+	if (a == 1)
+		return (1);
+
 	if (b * b < a)
 		return (-1);
 
