@@ -17,7 +17,7 @@ int helper(int a, int b)
 	if (a == 1)
 		return (1);
 
-	if (b * b < a)
+	if (b * b < a || a < 0)
 		return (-1);
 
 	else
