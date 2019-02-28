@@ -11,20 +11,22 @@
 
 int helper(int a, int b)
 {
-	if (b * b == a)
-		return (b);
-
-	if (a == 1)
-		return (1);
-
 	if (a == 0)
 		return (0);
 
-	if (b * b < a || a < 0)
+	else if (a == 1)
+		return (1);
+
+	else if (b * b < a || a < 0)
 		return (-1);
+
+	else if (b * b == a)
+		return (b);
 
 	else
 		return (helper(a, b - 1));
+
+	return (1);
 }
 
 /**
