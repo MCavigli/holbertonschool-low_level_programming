@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * palindromeChecker - checks the string
  *
@@ -21,8 +21,7 @@ int palindromeChecker(char *str, int len, int i)
 	if (str[i] != str[len])
 		return (0);
 
-	return (1);
-
+	return (0);
 }
 
 /**
