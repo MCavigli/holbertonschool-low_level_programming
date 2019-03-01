@@ -12,16 +12,11 @@
 
 int palindromeChecker(char *str, int len, int i)
 {
-	if (str[i] == str[len])
+	if (i < len && str[i] == str[len])
 		return (palindromeChecker(str, len - 1, i + 1));
-
-	if (str[i] == str[len] && i >= len)
-		return (1);
-
 	if (str[i] != str[len])
 		return (0);
-
-	return (0);
+	return (1);
 }
 
 /**
@@ -51,7 +46,7 @@ int _strlen_recursion(char *s)
 int is_palindrome(char *s)
 {
 	int i = 0;
-	int length = _strlen_recursion(s);
+	int length = _strlen_recursion(s) - 1;
 
 	return (palindromeChecker(s, length, i));
 }
