@@ -16,7 +16,10 @@ int main(int argc, char *argv[])
 	int m = 0;
 
 	if (argc != 3)
+	{
 		printf("ERROR\n");
+		return (1);
+	}
 
 	else
 	{
