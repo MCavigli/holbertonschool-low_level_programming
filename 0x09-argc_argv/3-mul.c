@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - multiplies two numbers
@@ -7,7 +7,7 @@
  * @argc: argument counter
  * @argv: argument vector
  *
- * Return: 0
+ * Return: 0 if it works, 1 if there is an ERROR
  */
 
 int main(int argc, char *argv[])
