@@ -18,21 +18,21 @@ int main(int argc, char *argv[])
 	int n = 0;
 
 	if (argc < 2)
-	{
 		printf("0\n");
-		return (0);
-	}
-	for (c = 1; c < argc; c++)
-	{
-		if (*argv[c] < '0' || *argv[c] > '9')
-		{
-			printf("ERROR\n");
-			return (1);
-		}
-		else
-			n = n + atoi(argv[c]);
-	}
-	printf("%d\n", n);
 
+	else
+	{
+		for (c = 1; c < argc; c++)
+		{
+			if (*argv[c] < '0' || *argv[c] > '9')
+			{
+				printf("ERROR\n");
+				return (1);
+			}
+			else
+				n = n + atoi(argv[c]);
+		}
+		printf("%d\n", n);
+	}
 	return (0);
 }
