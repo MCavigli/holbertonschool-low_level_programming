@@ -13,18 +13,17 @@
 
 int main(int argc, char *argv[])
 {
-	int n = atoi(argv[1]);
-	int m = atoi(argv[2]);
-	int diff = n * m;
 
 	if (argc != 3)
 	{
 		printf("ERROR\n");
 		return (1);
 	}
+	int n = atoi(argv[1]);
+	int m = atoi(argv[2]);
+	int diff = n * m;
 
-	else
-		printf("%i\n", diff);
+	printf("%i\n", diff);
 
 	return (0);
 }
