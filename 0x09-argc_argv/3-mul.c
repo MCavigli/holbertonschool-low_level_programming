@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	printf("%i\n", diff);
+	else
+		printf("%i\n", diff);
+
 	return (0);
 }
