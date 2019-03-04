@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,9 +13,9 @@
 
 int main(int argc, char *argv[])
 {
-	int n = 0;
-	int m = 0;
-	int diff = 0;
+	int n = atoi(argv[1]);
+	int m = atoi(argv[2]);
+	int diff = n * m;
 
 	if (argc != 3)
 	{
@@ -22,14 +23,6 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	else
-	{
-		n = atoi(argv[1]);
-		m = atoi(argv[2]);
-		diff = n * m;
-
-		printf("%i\n", diff);
-	}
-
+	printf("%i\n", diff);
 	return (0);
 }
