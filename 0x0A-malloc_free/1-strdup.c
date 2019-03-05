@@ -17,6 +17,7 @@ char *_strdup(char *str)
 	int i = 0;
 	int j = 0;
 
+
 	while (str[i])
 		i++;
 
@@ -29,6 +30,6 @@ char *_strdup(char *str)
 		ar[j] = str[j];
 		j++;
 	}
-
+	ar[j] = '\0';
 	return (ar);
 }
