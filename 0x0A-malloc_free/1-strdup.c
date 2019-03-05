@@ -14,22 +14,25 @@
 char *_strdup(char *str)
 {
 	char *ar;
-	int i = 0;
-	int j = 0;
+	unsigned int i = 0;
+	unsigned int j = 0;
 
+	if (str == NULL)
+		return (NULL);
 
 	while (str[i])
 		i++;
 
-	ar = malloc(sizeof(char) * (i + 1));
-	if (i == 0 || str == NULL)
+	if (i == 0)
 		return (NULL);
+
+	ar = malloc(sizeof(char) * (i + 1));
 
 	while (str[j])
 	{
 		ar[j] = str[j];
 		j++;
 	}
-	ar[j] = 0;
+	ar[j + 1] = 0;
 	return (ar);
 }
