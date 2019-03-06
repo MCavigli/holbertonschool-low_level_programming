@@ -34,7 +34,7 @@ char *argstostr(int ac, char **av)
 		counter++;
 	}
 	counter++; /* to account for \n that needs to be added later */
-	ar = malloc(sizeof(char) * counter);
+	ar = malloc(sizeof(char) * counter + 1);
 	if (ar == NULL)
 		return (NULL);
 
@@ -42,11 +42,11 @@ char *argstostr(int ac, char **av)
 	{
 		for (m = 0; av[n][m] != '\0'; m++)
 		{
-			k++;
 			ar[k] = av[n][m];
+			k++;
 		}
-		k++;
 		ar[k] = '\n';
+		k++;
 	}
 	ar[k] = '\0';
 	return (ar);
