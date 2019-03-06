@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 	int m;
 	int counter = 0;
 
-	if (ac == 0 || av == NULL)
+	if (ac == 0 || av == 0)
 		return (NULL);
 
 	for (i = 1; i <= ac; i++)
