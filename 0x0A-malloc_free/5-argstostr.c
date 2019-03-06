@@ -27,30 +27,24 @@ char *argstostr(int ac, char **av)
 	for (i = 1; i <= ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
-			counter += j;
-
+			counter++;
+		counter++;
 	}
-	counter += ac; /* to account for \n that needs to be added later */
+	counter++; /* to account for \n that needs to be added later */
 	ar = malloc(sizeof(char) * counter + 1); /* + 1 to account for \0 */
 	if (ar == NULL)
 		return (NULL);
 
-	while (k <= counter + 1)
+	for (n = 1; n <= ac; n++)
 	{
-		for (n = 1; n <= ac; n++)
+		for (m = 0; av[n][m] != '\0'; m++)
 		{
-			for (m = 0; av[n][m] != '\0'; m++)
-			{
-				ar[k] = av[n][m];
-				k++;
-				if (av[n][m + 1] == '\0')
-				{
-					ar[k] = '\n';
-					k++;
-				}
-			}
+			ar[k] = av[n][m];
+			k++;
 		}
-		ar[k + 1] = '\0';
+		ar[k] = '\n';
+		k++;
 	}
+	ar[k] = '\0';
 	return (ar);
 }
