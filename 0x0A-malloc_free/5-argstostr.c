@@ -16,7 +16,7 @@ char *argstostr(int ac, char **av)
 	char *ar;
 	int i;
 	int j;
-	int k;
+	int k = 0;
 	int n;
 	int m;
 	int counter = 0;
@@ -28,15 +28,13 @@ char *argstostr(int ac, char **av)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
 		{}
-		counter += j;
+		counter += j + 1; /* + 1 to account for \n */
 	}
-	counter += ac;     /* To account for \n */
-
-	ar = malloc(sizeof(char) + counter + 1);
+	ar = malloc(sizeof(char) * counter + 1); /* + 1 to account for \0 */
 	if (ar == NULL)
 		return (NULL);
 
-	while (k <= counter)
+	while (k <= counter + 1)
 	{
 		for (n = 0; n < ac; n++)
 		{
@@ -44,6 +42,11 @@ char *argstostr(int ac, char **av)
 			{
 				ar[k] = av[n][m];
 				k++;
+				if (av[n][m + 1] == '\0')
+				{
+					ar[k] = '\n';
+					k++;
+				}
 			}
 		}
 		ar[k + 1] = '\0';
