@@ -38,9 +38,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (ar == NULL)
 		return (NULL);
 
-	for (p = 0; s1[p]; p++)
+	for (p = 0; p < i; p++)
 		ar[k++] = s1[p];
-	for (m = 0; m <= j; m++)
+	for (m = 0; m < j; m++)
 		ar[k++] = s2[m];
 
 	return (ar);
