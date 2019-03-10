@@ -17,15 +17,15 @@ int main(void)
 	for (counter = 0; counter < 50; counter++)
 	{
 		if (counter == 49)
-		{
 			printf("%i\n", i);
-			return (0);
-		}
 
-		printf("%i, ", i);
-		k = i + j;
-		j = i;
-		i = k;
+		else
+		{
+			printf("%i, ", i);
+			k = i + j;
+			j = i;
+			i = k;
+		}
 	}
 	return (0);
 }
