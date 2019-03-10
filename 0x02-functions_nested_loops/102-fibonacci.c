@@ -14,9 +14,9 @@ int main(void)
 	j = 1;
 	k = 0;
 
-	for (counter = 0; counter < 50; counter++)
+	for (counter = 0; counter < 52; counter++)
 	{
-		if (counter == 49)
+		if (counter == 51)
 			printf("%i\n", i);
 
 		else
