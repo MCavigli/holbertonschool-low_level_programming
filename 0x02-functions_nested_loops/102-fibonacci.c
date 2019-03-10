@@ -14,11 +14,13 @@ int main(void)
 	j = 1;
 	k = 0;
 
-
 	for (counter = 0; counter < 50; counter++)
 	{
 		if (counter == 49)
+		{
 			printf("%i\n", i);
+			return (0);
+		}
 
 		printf("%i, ", i);
 		k = i + j;
