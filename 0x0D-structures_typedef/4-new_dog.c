@@ -46,13 +46,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 	ncpy = _strdup(name);
-	if (!ncpy)
+	if (!ncpy && name)
 	{
 		free(new);
 		return (NULL);
 	}
 	ocpy = _strdup(owner);
-	if (!ocpy)
+	if (!ocpy && owner)
 	{
 		free(ncpy);
 		free(new);
