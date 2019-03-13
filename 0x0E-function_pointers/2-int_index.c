@@ -22,7 +22,9 @@ int int_index(int *array, int size, int (*cmp)(int))
 	for (i = 0; i < size; i++)
 	{
 		if (p(array[i]) && array[i] != 0)
-			return (i);
+			break;
+		if (i == size - 1)
+			return (-1);
 	}
-	return (-1);
+	return (i);
 }
