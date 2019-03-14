@@ -17,11 +17,10 @@ int main(int argc, char *argv[])
 	char op = argv[2][0];
 	char *oper;
 
-	if (op != '+' && op != '-' && op != '*' &&
-	    op != '/' && op != '%')
+	if ((op != '*' && op != '+' && op != '-' &&
+	     op != '/' && op != '%') || argv[2][1] != '\0')
 	{
 		printf("Error\n");
-		printf("%d\n", op);
 		exit(99);
 	}
 	if ((op == '/' || op == '%') && b == 0)
