@@ -38,8 +38,8 @@ void chk_string(va_list list)
 	char *str;
 
 	str = va_arg(list, char *);
-	if (list == NULL)
-		printf("(nil)");
+	if (str == NULL)
+		str = "(nil)";
 
 	printf("%s", str);
 }
@@ -61,6 +61,9 @@ void print_all(const char * const format, ...)
 	int x = 0, y = 0;
 	va_list list;
 	char *sep = "";
+
+	if (!format)
+		return;
 
 	va_start(list, format);
 
