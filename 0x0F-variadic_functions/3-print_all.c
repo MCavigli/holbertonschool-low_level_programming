@@ -62,9 +62,6 @@ void print_all(const char * const format, ...)
 	va_list list;
 	char *sep = "";
 
-	if (!format)
-		return;
-
 	va_start(list, format);
 
 	while (format[x] && format)
