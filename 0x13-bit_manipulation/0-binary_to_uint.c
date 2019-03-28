@@ -23,9 +23,14 @@ unsigned int binary_to_uint(const char *b)
 
 	while (i >= 0)
 	{
-		if (b[i] == '0' || b[i] == '1')
+		if (b[i] == '0')
 		{
-			n = n + (b[i] * (2 << power));
+			i--;
+			power++;
+		}
+		else if (b[i] == '1')
+		{
+			n = n + (2 << power);
 			i--;
 			power++;
 		}
