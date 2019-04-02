@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	ffrom = open(argv[1], O_RDONLY);
 	if (ffrom  == -1)
 	{
-		dprintf(2, "Can't read from file %s\n", argv[1]);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
