@@ -10,18 +10,15 @@
 
 int main(int argc, char *argv[])
 {
-	int ffrom, fto, rd, wr, clf, clt;
-	char *buff = malloc(sizeof(char) * 1024);
+	int ffrom, fto, rd, clf, clt;
+	char buff[BUFSIZ];
 
 	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
-		free(buff);
 		exit(97);
 	}
-	if (buff == NULL)
-		return (-1);
-	ffrom = open(argv[1], O_RDWR);
+	ffrom = open(argv[1], O_RDONLY);
 	if (ffrom == -1)
 	{
 		dprintf(2, "Can't read from file %s\n", argv[1]);
@@ -33,35 +30,27 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	rd = read(ffrom, buff, 1024);
+	while ((rd = read(ffrom, buff, BUFSIZ)) > 0)
+		if (write(fto, buff, rd) != rd)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[2]);
+			exit(99);
+		}
 	if (rd == -1)
 	{
-		free(buff);
-		close(ffrom && fto);
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	wr = write(fto, buff, rd);
-	if (wr == -1)
-	{
-		free(buff);
-		close(ffrom && fto);
-		dprintf(2, "Error: Can't read from file %s\n", argv[2]);
-		exit(99);
-	}
-
 	clf = close(ffrom);
 	clt = close(fto);
 	if (clf == -1 || clt == -1)
 	{
-		free(buff);
 		if (clf == -1)
 			dprintf(2, "Error: Can't close fd %d\n", ffrom);
 		else if (clt == -1)
 			dprintf(2, "Error: Can't close fd %d\n", fto);
 		exit(100);
 	}
-	free(buff);
 	close(ffrom && fto);
 	return (0);
 }
