@@ -23,15 +23,10 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	fto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fto == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
 	while ((rd = read(ffrom, buff, BUFSIZ)) > 0)
-		if (write(fto, buff, rd) != rd)
+		if (fto == -1 || (write(fto, buff, rd) != rd))
 		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[2]);
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	if (rd == -1)
@@ -49,6 +44,5 @@ int main(int argc, char *argv[])
 			dprintf(2, "Error: Can't close fd %d\n", fto);
 		exit(100);
 	}
-	close(ffrom && fto);
 	return (0);
 }
