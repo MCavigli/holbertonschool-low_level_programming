@@ -49,5 +49,6 @@ int main(int argc, char *argv[])
 			dprintf(2, "Error: Can't close fd %d\n", fto);
 		exit(100);
 	}
+	close(ffrom && fto);
 	return (0);
 }
