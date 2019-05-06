@@ -112,6 +112,12 @@ julien@ubuntu:~/0x17. Dynamic libraries$ ./len
 julien@ubuntu:~/0x17. Dynamic libraries$
 ```
 
+Repo:
+
+* GitHub repository: `holbertonschool-low_level_programming`
+* Directory: `0x17-dynamic_libraries`
+* File: `libholberton.so, holberton.h`
+
 **TASK 1**
 
 Create a script that creates a dynamic library called `liball.so` from all the `.c` files that are in the current directory.
@@ -151,6 +157,12 @@ julien@ubuntu:~/0x17. Dynamic libraries$ nm -D --defined-only liball.so
 julien@ubuntu:~/0x17. Dynamic libraries$
 ```
 
+Repo:
+
+* GitHub repository: `holbertonschool-low_level_programming`
+* Directory: `0x17-dynamic_libraries`
+* File: `1-create_dynamic_lib.sh`
+
 **TASK 2**
 
 Write a blog post describing the differences between static and dynamic libraries. It should cover:
@@ -166,3 +178,53 @@ Your posts should have examples and at least one picture, at the top. Publish yo
 When done, please add all urls below (blog post, tweet, etc.)
 
 Please, remember that these blogs must be written in English to further your technical ability in a variety of settings
+
+**TASK 3 - ADVANCED**
+
+Create a dynamic library that contains C functions that can be called from Python. See example for more detail.
+
+```
+julien@ubuntu:~/0x17$ cat 100-tests.py
+import random
+import ctypes
+
+cops = ctypes.CDLL('./100-operations.so')
+a = random.randint(-111, 111)
+b = random.randint(-111, 111)
+print("{} + {} = {}".format(a, b, cops.add(a, b)))
+print("{} - {} = {}".format(a, b, cops.sub(a, b)))
+print("{} x {} = {}".format(a, b, cops.mul(a, b)))
+print("{} / {} = {}".format(a, b, cops.div(a, b)))
+print("{} % {} = {}".format(a, b, cops.mod(a, b)))
+julien@ubuntu:~/0x16. Doubly linked lists$ python3 100-tests.py 
+66 + -76 = -10
+66 - -76 = 142
+66 x -76 = -5016
+66 / -76 = 0
+66 % -76 = 66
+julien@ubuntu:~/0x17$ python3 100-tests.py 
+-34 + -57 = -91
+-34 - -57 = 23
+-34 x -57 = 1938
+-34 / -57 = 0
+-34 % -57 = -34
+julien@ubuntu:~/0x17$ python3 100-tests.py 
+-5 + -72 = -77
+-5 - -72 = 67
+-5 x -72 = 360
+-5 / -72 = 0
+-5 % -72 = -5
+julien@ubuntu:~/0x17$ python3 100-tests.py 
+39 + -62 = -23
+39 - -62 = 101
+39 x -62 = -2418
+39 / -62 = 0
+39 % -62 = 39
+julien@ubuntu:~/0x17$
+```
+
+Repo:
+
+* GitHub repository: `holbertonschool-low_level_programming`
+* Directory: `0x17-dynamic_libraries`
+* File: `100-operations.so`
