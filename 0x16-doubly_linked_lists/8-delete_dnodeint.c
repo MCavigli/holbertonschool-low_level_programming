@@ -26,9 +26,9 @@ size_t dlistint_len(const dlistint_t *h)
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *forward = NULL;
+	dlistint_t *forward = *head;
 	dlistint_t *current = *head;
-	dlistint_t *previous = NULL;
+	dlistint_t *previous = *head;
 	unsigned int counter = 0;
 	size_t length = dlistint_len(*head);
 
@@ -42,18 +42,18 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(current);
 		return (1);
 	}
-	while (counter < index)
-	{
-		current = current->next;
-		counter++;
-	}
-
 	if (index == length)
 	{
 		previous = current->prev;
 		previous->next = NULL;
 		free(current);
 		return (1);
+	}
+
+	while (counter < index)
+	{
+		current = current->next;
+		counter++;
 	}
 
 	forward = current->next;
