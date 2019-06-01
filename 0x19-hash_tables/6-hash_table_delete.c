@@ -12,6 +12,8 @@ void hash_table_delete(hash_table_t *ht)
 	hash_node_t *ptr;
 	hash_node_t *prev;
 
+	if (!ht)
+		return;
 	for (idx = 0; idx < ht->size; idx++)
 	{
 		ptr = ht->array[idx];
