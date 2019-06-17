@@ -60,6 +60,16 @@ int checklist(listint_t **list, listint_t **current)
 	}
 	return (0);
 }
+
+/**
+ * checkend - checks end of list for swapping
+ * @list: pointer to doubly-linked list
+ * @current: double pointer to current node
+ * @tmp: double pointer to hold spot of node
+ *
+ * Return: nothing
+ */
+
 int checkend(listint_t **current, listint_t **tmp, listint_t *list)
 {
 	if (!(*current)->next && (*tmp)->n > (*current)->n)
@@ -75,6 +85,15 @@ int checkend(listint_t **current, listint_t **tmp, listint_t *list)
 	}
 	return (0);
 }
+
+/**
+ * checkbeg - checks beginning of list
+ * @list: double pointer to doubly-linked list
+ * @current: pointer to current node
+ * @hold: double pointer to position to hold
+ * @tmp: double pointer to node
+ * Return: 0 or 1
+ */
 
 int checkbeg(listint_t **current, listint_t **tmp,
 	     listint_t *hold, listint_t **list)
@@ -93,6 +112,16 @@ int checkbeg(listint_t **current, listint_t **tmp,
 	}
 	return (0);
 }
+
+/**
+ * checkjuice - swaps middle nodes
+ * @list:pointer to doubly-linked list
+ * @current: double pointer to current node
+ * @tmp: double pointer to position to hold
+ *
+ * Return: 0 or 1
+ */
+
 int checkjuice(listint_t **current, listint_t **tmp,
 	       listint_t *list)
 {
