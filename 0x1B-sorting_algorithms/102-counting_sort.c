@@ -22,16 +22,16 @@ void counting_sort(int *array, size_t size)
 	tmp_array = malloc(size * sizeof(int));
 	if (!counting_array || !tmp_array)
 		return;
-	for (i = 0; i < max + 1; i++)
+	for (i = 0; i < max; i++)
 		counting_array[i] = 0;
 	for (i = 0; array[i]; i++)
 		counting_array[array[i]] += 1;
-	for (i = 0, spot = 0; i < max + 1; i++)
+	for (i = 0, spot = 0; i <= max; i++)
 	{
 		spot += counting_array[i];
 		counting_array[i] = spot;
 	}
-	print_array(counting_array, 100);
+	print_array(counting_array, max + 1);
 	for (spot = 0, i = 0; i < max + 1; i++)
 	{
 		if (spot < counting_array[i])
