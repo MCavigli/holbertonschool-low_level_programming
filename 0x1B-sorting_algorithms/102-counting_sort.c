@@ -9,7 +9,7 @@
 void counting_sort(int *array, size_t size)
 {
 	int *counting_array = NULL, *tmp_array = NULL;
-	int i = 0, j = 0, spot = 0, max = array[0];
+	int i = 0, spot = 0, max = array[0], new_spot = 0;
 
 	if (!array || size < 2)
 		return;
@@ -32,14 +32,11 @@ void counting_sort(int *array, size_t size)
 		counting_array[i] = spot;
 	}
 	print_array(counting_array, max + 1);
-	for (spot = 0, i = 0; i < max + 1; i++)
+	for (i = 0, spot = 0; array[i]; i++)
 	{
-		if (spot < counting_array[i])
-		{
-			tmp_array[j] = i;
-			spot++;
-			j++;
-		}
+		spot = array[i];
+		new_spot = counting_array[spot];
+		tmp_array[new_spot - 1] = spot;
 	}
 	for (i = 0; array[i]; i++)
 		array[i] = tmp_array[i];
