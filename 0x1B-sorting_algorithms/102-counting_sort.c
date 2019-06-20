@@ -36,7 +36,8 @@ void counting_sort(int *array, size_t size)
 	{
 		spot = array[i];
 		new_spot = counting_array[spot];
-		tmp_array[new_spot - 1] = spot;
+		tmp_array[new_spot - 1] = array[i];
+		counting_array[spot]--;
 	}
 	for (i = 0; array[i]; i++)
 		array[i] = tmp_array[i];
