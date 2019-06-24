@@ -11,7 +11,7 @@
 
 void merge_sort(int *array, size_t size)
 {
-	size_t i;;
+	size_t i;
 	int *tmp_arr = NULL;
 
 	if (!array || size < 2)
