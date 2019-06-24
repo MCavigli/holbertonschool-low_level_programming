@@ -1,11 +1,17 @@
 #include "sort.h"
+
 /**
+ * merge_sort - Function that sends code off to be merge recursively, creates
+ * new array to work with
+ * @array: pointer to the array
+ * @size: size of the array
  *
+ * Return: Nothing
  */
 
 void merge_sort(int *array, size_t size)
 {
-        size_t i;
+	size_t i;;
 	int *tmp_arr = NULL;
 
 	if (!array || size < 2)
@@ -15,12 +21,18 @@ void merge_sort(int *array, size_t size)
 		return;
 	for (i = 0; i < size; i++)
 		tmp_arr[i] = array[i];
-	split(array, tmp_arr, 0, size); /* Put in -1 on size */
+	split(array, tmp_arr, 0, size);
 	free(tmp_arr);
 }
 
 /**
+ * split - Recursive function that splits the array
+ * @array: Original array
+ * @tmp_arr: Copy of original array
+ * @left: Beginning of array
+ * @right: End of array
  *
+ * Return: Nothing
  */
 
 void split(int *array, int *tmp_arr, size_t left, size_t right)
@@ -30,17 +42,21 @@ void split(int *array, int *tmp_arr, size_t left, size_t right)
 	if (right - left < 2)
 		return;
 	middle = (left + right) / 2;
-/*
-  if ((left + right) % 2 == 0)
-  middle--;
-*/
+
 	split(array, tmp_arr, left, middle);
 	split(array, tmp_arr, middle, right);
 	combine(array, tmp_arr, left, middle, right);
 }
 
 /**
+ * combine - Function that prints and changes values of variables
+ * @array: Original array
+ * @tmp_arr: Copy of original array
+ * @left: Beginning of array
+ * @middle: Middle of array
+ * @right: End of array
  *
+ * Return: Nothing
  */
 
 void combine(int *array, int *tmp_arr, size_t left, size_t middle,
