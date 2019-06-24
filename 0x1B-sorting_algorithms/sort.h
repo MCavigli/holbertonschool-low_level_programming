@@ -41,5 +41,5 @@ int partition(int *array, size_t start, size_t end, size_t size);
 void realqs(int *array, int start, int end, size_t size);
 void split(int *tmp_arr, size_t left, size_t right, int *array);
 void combine(int *array, size_t left, size_t middle,
-             size_t right, int *tmp_arr);
+	     size_t right, int *tmp_arr);
 #endif
