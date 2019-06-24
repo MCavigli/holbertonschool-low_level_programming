@@ -100,5 +100,4 @@ void combine(int *array, size_t left, size_t middle,
 		else
 			printf("%d\n", tmp_arr[z]);
 	}
-
 }
