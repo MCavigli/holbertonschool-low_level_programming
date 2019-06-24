@@ -1,5 +1,4 @@
 #include "sort.h"
-
 /**
  * merge_sort - Function that sends code off to be merge recursively, creates
  * new array to work with
@@ -21,7 +20,7 @@ void merge_sort(int *array, size_t size)
 		return;
 	for (i = 0; i < size; i++)
 		tmp_arr[i] = array[i];
-	split(array, tmp_arr, 0, size);
+	split(tmp_arr, 0, size, array);
 	free(tmp_arr);
 }
 
@@ -35,17 +34,16 @@ void merge_sort(int *array, size_t size)
  * Return: Nothing
  */
 
-void split(int *array, int *tmp_arr, size_t left, size_t right)
+void split(int *tmp_arr, size_t left, size_t right, int *array)
 {
 	int middle;
 
 	if (right - left < 2)
 		return;
-	middle = (left + right) / 2;
-
-	split(array, tmp_arr, left, middle);
-	split(array, tmp_arr, middle, right);
-	combine(array, tmp_arr, left, middle, right);
+	middle = (right + left) / 2;
+	split(array, left, middle, tmp_arr);
+	split(array, middle, right, tmp_arr);
+	combine(tmp_arr, left, middle, right, array);
 }
 
 /**
@@ -59,47 +57,48 @@ void split(int *array, int *tmp_arr, size_t left, size_t right)
  * Return: Nothing
  */
 
-void combine(int *array, int *tmp_arr, size_t left, size_t middle,
-	     size_t right)
+void combine(int *array, size_t left, size_t middle,
+	     size_t right, int *tmp_arr)
 {
-	size_t l = left,  m = middle, i = 0;
+	size_t i = left,  j = middle, z = 0;
 
 	printf("Merging...\n");
 	printf("[left]: ");
-	for (i = left; i < middle; i++)
+	for (z = left; z < middle; z++)
 	{
-		if (i < middle - 1)
-			printf("%d, ", array[i]);
+		if (z < middle - 1)
+			printf("%d, ", array[z]);
 		else
-			printf("%d\n", array[i]);
+			printf("%d\n", array[z]);
 	}
 	printf("[right]: ");
-	for (i = middle; i < right; i++)
+	for (z = middle; z < right; z++)
 	{
-		if (i < right - 1)
-			printf("%d, ", array[i]);
+		if (z < right - 1)
+			printf("%d, ", array[z]);
 		else
-			printf("%d\n", array[i]);
+			printf("%d\n", array[z]);
 	}
-	for (i = left; i < right; i++)
+	for (z = left; z < right; z++)
 	{
-		if (l < middle && (m >= right || array[l] <= array[m]))
+		if (i < middle && (j >= right || array[i] <= array[j]))
 		{
-			tmp_arr[i] = array[l];
-			l++;
+			tmp_arr[z] = array[i];
+			i++;
 		}
 		else
 		{
-			tmp_arr[i] = array[m];
-			m++;
+			tmp_arr[z] = array[j];
+			j++;
 		}
 	}
 	printf("[Done]: ");
-	for (i = left; i < right; i++)
-		if (i < right - 1)
-			printf("%d, ", tmp_arr[i]);
+	for (z = left; z < right; z++)
+	{
+		if (z < right - 1)
+			printf("%d, ", tmp_arr[z]);
 		else
-			printf("%d\n", tmp_arr[i]);
-
+			printf("%d\n", tmp_arr[z]);
+	}
 
 }
