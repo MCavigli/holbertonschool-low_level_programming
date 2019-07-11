@@ -11,6 +11,7 @@
 * [Simple Makefile tutorial](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
 * [What is a Makefile?](https://opensource.com/article/18/8/what-how-makefile)
 * [Makefile cheatsheet](https://devhints.io/makefile)
+* [patsubst stackoverflow page](https://stackoverflow.com/questions/28559338/makefile-to-convert-all-c-to-o)
 
 ## Requirements
 
