@@ -42,6 +42,8 @@ int rec_bs(int *array, size_t size, int value, int low, int high)
 		return (-1);
 	if (array[mid] > value)
 		return (rec_bs(array, size, value, low, mid - 1));
-	else
+	else if (array[mid] < value)
 		return (rec_bs(array, size, value, mid + 1, high));
+	else
+		return (mid);
 }
