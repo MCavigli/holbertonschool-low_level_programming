@@ -30,20 +30,18 @@ int binary_search(int *array, size_t size, int value)
 int rec_bs(int *array, size_t size, int value, int low, int high)
 {
 	int i;
-	int mid = low + (high - low) / 2;
+	int mid = (high + low) / 2;
 
 	printf("Searching in array: ");
 	for (i = low; i < high; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
-	if (array[low] == value)
-		return (low);
+	if (array[mid] == value)
+		return (mid);
 	if (low == high)
 		return (-1);
 	if (array[mid] > value)
 		return (rec_bs(array, size, value, low, mid - 1));
-	else if (array[mid] < value)
-		return (rec_bs(array, size, value, mid + 1, high));
 	else
-		return (mid);
+		return (rec_bs(array, size, value, mid + 1, high));
 }
