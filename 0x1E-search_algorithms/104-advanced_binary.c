@@ -1,13 +1,13 @@
 #include "search_algos.h"
 /**
- * binary_search - searches for value in array using binary search
+ * advanced_binary - searches for value in array using binary search
  * @array: pointer to array to search
  * @size: size of array
  * @value: value to search for
  * Return: index where @value is located
  */
 
-int binary_search(int *array, size_t size, int value)
+int advanced_binary(int *array, size_t size, int value)
 {
 	int low = 0;
 	int high = size - 1;
